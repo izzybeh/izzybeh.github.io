@@ -1,0 +1,72 @@
+.app-section {
+    padding: 32px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    position: relative;
+
+}
+
+.app-section-form {
+    display: flex;
+    flex-direction: column;
+    min-height: 730px;
+    justify-content: space-between;
+}
+
+.app-section-form-nav {
+    position: sticky;
+    bottom: 0;
+}
+
+#take-home-pay {
+    font-weight: bold;
+}
+
+.active-fields {
+    margin-top: 1rem;
+}
+
+.spending-category {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.spending-category .form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.spending-category:last-of-type {
+    border-bottom: none;
+}
+
+.spending-category-title {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+}
+
+.spending-category .bi-dash-lg {
+    display: none;
+}
+
+.spending-category-title h3 {
+    margin: 0;
+    font-size: inherit;
+}
+
+.spending-category-body {
+    display: none;
+}
+
+.spending-category.open .bi-dash-lg {
+    display: inline;
+}
+
+.spending-category.open .bi-plus-lg {
+    display: none;
+}
+
+.spending-category.open .spending-category-body {
+    display: block;
+}

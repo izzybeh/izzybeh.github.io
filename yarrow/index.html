@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+
+    <title>Yarrow - Home</title>
+</head>
+
+<body>
+    <h1>Yarrow</h1>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="app-section">
+                    <form class="app-section-form" id="gross-form">
+                        <div class="app-section-form-main">
+                            <h2>Paycheck Amount</h2>
+                            <div class="active-fields">
+                                <div class="form-group">
+                                    <label class="sr-only" for="gross">Gross Paycheck Amount</label>
+                                    <input type="text" class="form-control" id="gross" name="gross"
+                                        placeholder="Gross Paycheck Amount">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-section-form-nav d-flex justify-content-between mt-2">
+                            <button class="btn btn-secondary btn-back">Back</button>
+                            <button type="submit" class="btn btn-primary btn-next">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="app-section">
+                    <form class="app-section-form" id="deductions-form">
+                        <div class="app-section-form-main">
+                            <h2 class="section-title">Tax Withholding</h2>
+                            <div class="subtitle">
+                                Tax withholding is the amount of income tax withheld from your paycheck. The amount of
+                                income tax your employer withholds from your regular pay depends on two things: The
+                                amount you earn. The information you give your employer on Form W–4.
+                            </div>
+                            <div class="active-fields">
+                                <div class="form-group">
+                                    <label class="sr-only" for="federal">Federal</label>
+                                    <input type="text" name="federal" class="form-control" id="federal" placeholder="Federal">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="state">State</label>
+                                    <input type="text" name="state" class="form-control" id="state" placeholder="State">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="social-security">Social Security</label>
+                                    <input type="text" name="social-security" class="form-control" id="social-security"
+                                        placeholder="Social Security">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="medicare">Medicare</label>
+                                    <input type="text" name="medicare" class="form-control" id="medicare" placeholder="Medicare">
+                                </div>
+                            </div>
+                            <div class="mt-3 mb-3">
+                                <button type="button" class="btn btn-link add-field">
+                                    <i class="bi bi-plus-lg"></i> Add Withholding
+                                </button>
+                            </div>
+                        </div>
+                        <div class="app-section-form-nav d-flex justify-content-between mt-2">
+                            <button class="btn btn-secondary btn-back">Back</button>
+                            <button type="submit" class="btn btn-primary btn-next">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="app-section">
+                    <h2>Take-Home Pay</h2>
+                    <div class="subtitle">
+                        Your take-home pay is <span id="take-home-pay">$0.00</span>! Let's decide how you want to spend
+                        it.
+                    </div>
+                    <form class="app-section-form" id="categories-form">
+                        <div class="spending-categories">
+                            <div class="spending-category">
+                                <div class="spending-category-title d-flex justify-content-between">
+                                    <h3>Home</h3>
+                                    <div class="spending-category-title-icons">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <i class="bi bi-dash-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="spending-category-body">
+                                    <div class="active-fields">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="mortgage-rent">Mortgage/Rent</label>
+                                            <input type="text" name="mortgageRent" class="form-control" id="mortgage-rent"
+                                                placeholder="Mortgage/Rent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spending-category">
+                                <div class="spending-category-title d-flex justify-content-between">
+                                    <h3>Food</h3>
+                                    <div class="spending-category-title-icons">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <i class="bi bi-dash-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="spending-category-body">
+                                    <div class="active-fields">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="groceries">Groceries</label>
+                                            <input type="text" name="groceries" class="form-control" id="groceries"
+                                                placeholder="Groceries">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spending-category">
+                                <div class="spending-category-title d-flex justify-content-between">
+                                    <h3>Health</h3>
+                                    <div class="spending-category-title-icons">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <i class="bi bi-dash-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="spending-category-body">
+                                    <div class="active-fields">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="medical-insurance">Medical Insurance</label>
+                                            <input type="text" name="medical" class="form-control" id="medical-insurance"
+                                                placeholder="Medical Insurance">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="dental-insurance">Dental Insurance</label>
+                                            <input type="text" name="dental" class="form-control" id="dental-insurance"
+                                                placeholder="Dental Insurance">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="vision-insurance">Vision Insurance</label>
+                                            <input type="text" name="vision" class="form-control" id="vision-insurance"
+                                                placeholder="Dental Insurance">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="gym">Gym</label>
+                                            <input type="text" name="gym" class="form-control" id="gym" placeholder="Gym">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spending-category">
+                                <div class="spending-category-title d-flex justify-content-between">
+                                    <h3>Debt</h3>
+                                    <div class="spending-category-title-icons">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <i class="bi bi-dash-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="spending-category-body">
+                                    <div class="active-fields">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="credit-card">Credit Card</label>
+                                            <input type="text" name="creditCard" class="form-control" id="credit-card"
+                                                placeholder="Credit Card">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spending-category">
+                                <div class="spending-category-title d-flex justify-content-between">
+                                    <h3>Auto</h3>
+                                    <div class="spending-category-title-icons">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <i class="bi bi-dash-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="spending-category-body">
+                                    <div class="active-fields">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="car-insurance">Car Insurance</label>
+                                            <input type="text" name="carInsurance" class="form-control" id="car-insurance"
+                                                placeholder="Car Insurance">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spending-category">
+                                <div class="spending-category-title d-flex justify-content-between">
+                                    <h3>Short-term Savings</h3>
+                                    <div class="spending-category-title-icons">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <i class="bi bi-dash-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="spending-category-body">
+                                    <div class="active-fields">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="emergency-fund">Emergency Fund</label>
+                                            <input type="text" name="emergency" class="form-control" id="emergency-fund"
+                                                placeholder="Emergency Fund">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spending-category">
+                                <div class="spending-category-title d-flex justify-content-between">
+                                    <h3>Long-term Savings</h3>
+                                    <div class="spending-category-title-icons">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <i class="bi bi-dash-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="spending-category-body">
+                                    <div class="active-fields">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="k">401k</label>
+                                            <input type="text" name="k" class="form-control" id="k" placeholder="401k">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-actions d-flex justify-content-between mt-5">
+                            <button class="btn btn-secondary btn-back">Back</button>
+                            <div class="remaning px-3">${remaining}</div>
+                            <button type="submit" class="btn btn-primary btn-next">Next</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+<script>
+    $(function () {
+        // Adding fields to the form
+        $('.add-field').click(function () {
+            let $section = $(this).closest('.app-section'),
+                topic = $section.find('h2').text(),
+                count = $('.new-field').length + 1,
+                fieldId = topic.replace(/\s/g, '') + count,
+                field = `<div class="form-group new-field">
+                                <label class="sr-only" for="${fieldId}">withholding</label>
+                                <input type="text" class="form-control" name="${fieldId}" id="${fieldId}" placeholder="${topic}">
+                        </div>`;
+            $section.find('.active-fields').append(field);
+        });
+
+        // app navigation
+        $('.btn-next').click(function (e) {
+            e.preventDefault();
+
+            let $section = $(this).closest('.app-section'),
+                $nextSection = $section.nextAll('.app-section').first();
+
+
+            // Get all input values
+            $section.find("input").each(function() {
+                let subCategory = $(this).attr("name"),
+                    val = $(this).val() || 0,
+                    $spendingCategory = $(this).closest('.spending-category');
+
+                if ($spendingCategory.length > 0) {
+                    category = $spendingCategory.find('h3').text().trim();
+                    let categoryObj = {};
+
+                    categoryObj[subCategory] = val;
+                    if (category in app.spendingCategories) {
+                        Object.assign(app.spendingCategories[category], categoryObj)
+                    } else {
+
+                        app.spendingCategories[category] = categoryObj;
+                    }
+                } else {
+                    app.spendingCategories[subCategory] = val;
+                }
+
+            });
+
+            console.log(app.spendingCategories);
+
+
+            if ($nextSection.length > 0) {
+                $('.app-section').addClass('d-none');
+                $nextSection.removeClass('d-none');
+            }
+        });
+
+        $('.btn-back').click(function (e) {
+            e.preventDefault();
+
+            let $section = $(this).closest('.app-section'),
+                $backSection = $section.prev('.app-section').first();
+
+            if ($backSection.length > 0) {
+                $('.app-section').addClass('d-none');
+                $backSection.removeClass('d-none');
+            }
+        });
+
+        // Accordions
+        $('.spending-category-title').click(function () {
+            $(this).closest('.spending-category').toggleClass('open');
+        });
+
+    });
+</script>
+
+</html>
