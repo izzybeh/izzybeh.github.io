@@ -1,0 +1,14 @@
+# Node.js
+/node_modules/
+npm-debug.log
+
+# Dist folder
+/dist/
+
+# Webpack configuration
+/webpack.config.js
+/webpack.config.*.js 
+
+# Generated files
+/*.js.map 
+/*.css.map

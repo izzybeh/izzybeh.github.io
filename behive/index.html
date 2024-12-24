@@ -9,15 +9,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="../dist/bundle.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
 
-    <title>Yarrow - Home</title>
+    <title>Behive - A paycheck planning tool</title>
 </head>
 
 <body>
-    <h1>Yarrow</h1>
+    <h1>Behive</h1>
+    <p>A paycheck planning tool</p>
 
     <div class="container-fluid">
         <div class="row">
@@ -49,23 +51,26 @@
                                 income tax your employer withholds from your regular pay depends on two things: The
                                 amount you earn. The information you give your employer on Form W–4.
                             </div>
-                            <div class="active-fields">
-                                <div class="form-group">
-                                    <label class="sr-only" for="federal">Federal</label>
-                                    <input type="text" name="federal" class="form-control" id="federal" placeholder="Federal">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="state">State</label>
-                                    <input type="text" name="state" class="form-control" id="state" placeholder="State">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="social-security">Social Security</label>
-                                    <input type="text" name="social-security" class="form-control" id="social-security"
-                                        placeholder="Social Security">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="medicare">Medicare</label>
-                                    <input type="text" name="medicare" class="form-control" id="medicare" placeholder="Medicare">
+                            <div class="spending-category">
+                                <h3 class="d-none">taxes</h3>
+                                <div class="active-fields">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="federal">Federal</label>
+                                        <input type="text" name="federal" class="form-control" id="federal" placeholder="Federal">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="state">State</label>
+                                        <input type="text" name="state" class="form-control" id="state" placeholder="State">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="social-security">Social Security</label>
+                                        <input type="text" name="social-security" class="form-control" id="social-security"
+                                            placeholder="Social Security">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="medicare">Medicare</label>
+                                        <input type="text" name="medicare" class="form-control" id="medicare" placeholder="Medicare">
+                                    </div>
                                 </div>
                             </div>
                             <div class="mt-3 mb-3">
@@ -275,22 +280,23 @@
             let $section = $(this).closest('.app-section'),
                 $nextSection = $section.nextAll('.app-section').first();
 
-
             // Get all input values
+            
             $section.find("input").each(function() {
                 let subCategory = $(this).attr("name"),
-                    val = $(this).val() || 0,
+                    val = parseFloat($(this).val() || 0),
                     $spendingCategory = $(this).closest('.spending-category');
 
                 if ($spendingCategory.length > 0) {
                     category = $spendingCategory.find('h3').text().trim();
+                    console.log(category);
                     let categoryObj = {};
 
                     categoryObj[subCategory] = val;
+
                     if (category in app.spendingCategories) {
                         Object.assign(app.spendingCategories[category], categoryObj)
                     } else {
-
                         app.spendingCategories[category] = categoryObj;
                     }
                 } else {
@@ -299,14 +305,24 @@
 
             });
 
-            console.log(app.spendingCategories);
+            app.calcTakeHomePay();
 
+            console.log(app.spendingCategories);
 
             if ($nextSection.length > 0) {
                 $('.app-section').addClass('d-none');
                 $nextSection.removeClass('d-none');
             }
         });
+
+        $('body').on('focusout', 'input', function() {
+            let $this = $(this),
+                val = parseFloat($this.val()),
+                subCategory = $this.attr('name'),
+                category = $this.closest('.spending-category').find('h3').text().trim();
+            
+        })
+
 
         $('.btn-back').click(function (e) {
             e.preventDefault();
