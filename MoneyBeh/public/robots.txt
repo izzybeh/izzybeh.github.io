@@ -1,0 +1,10 @@
+# MoneyBeh - Robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages (if any in the future)
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://moneybeh.com/sitemap.xml
