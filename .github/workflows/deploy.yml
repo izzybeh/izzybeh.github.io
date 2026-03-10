@@ -26,21 +26,21 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-          cache-dependency-path: ./MoneyBeh/pnpm-lock.yaml
+          cache-dependency-path: ./moneybeh/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: ./MoneyBeh
+        working-directory: ./moneybeh
 
       - name: Build project
         run: pnpm build
-        working-directory: ./MoneyBeh
+        working-directory: ./moneybeh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Assuming you are using Vite (dist). If using CRA, change to ./MoneyBeh/build
-          path: ./MoneyBeh/dist 
+          # Assuming you are using Vite (dist). If using CRA, change to ./moneybeh/build
+          path: ./moneybeh/dist 
 
       - name: Deploy to GitHub Pages
         id: deployment
